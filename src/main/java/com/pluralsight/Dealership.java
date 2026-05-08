@@ -2,6 +2,7 @@ package com.pluralsight;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class Dealership {
     private String name;
@@ -16,7 +17,38 @@ public class Dealership {
         this.inventory = new ArrayList<>();
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
     public List<Vehicle> getAllVehicles(){
        return null;
     }
+
+    public static Dealership parseLine(String line) {
+        Dealership dealership;
+        String[] dealershipFields = line.split(Pattern.quote("|"));
+        dealership = new Dealership(dealershipFields[0], dealershipFields[1], dealershipFields[2]);
+        return dealership;
+    }
+
+    @Override
+    public String toString() {
+        return "Dealership{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", inventory=" + inventory +
+                '}';
+    }
+
+
 }

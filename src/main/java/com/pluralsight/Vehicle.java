@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import java.util.regex.Pattern;
+
 public class Vehicle {
     private int vin;
     private int year;
@@ -83,5 +85,12 @@ public class Vehicle {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public static Vehicle parseLine(String line) {
+        Vehicle vehicle;
+        String[] vehicleFields = line.split(Pattern.quote("|"));
+        vehicle = new Vehicle(Integer.parseInt(vehicleFields[0]), Integer.parseInt(vehicleFields[1]), vehicleFields[2],vehicleFields[3],vehicleFields[4], vehicleFields[5], Integer.parseInt(vehicleFields[6]), Double.parseDouble(vehicleFields[7]));
+        return vehicle;
     }
 }

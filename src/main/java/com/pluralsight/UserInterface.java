@@ -7,6 +7,6 @@ public class UserInterface {
     private Scanner scanner;
 
     public void display(){
-        System.out.println("My dealership app started.");
+
     }
 }
