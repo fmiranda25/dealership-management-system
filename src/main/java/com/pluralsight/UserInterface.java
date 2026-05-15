@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface {
-    private Dealership dealership;
     private Scanner scanner = new Scanner(System.in);
     DealershipFileManager fileToBeProcessed = new DealershipFileManager();
+    Dealership dealership = fileToBeProcessed.getDealership();
 
     public void display(){
         do {
@@ -119,7 +119,7 @@ public class UserInterface {
 
     public void processAddVehicleRequest(){
         dealership.addVehicle();
-        fileToBeProcessed.saveDealership(dealership);
+//        fileToBeProcessed.saveDealership(dealership);
     }
 
     public void processRemoveVehicleRequest(){

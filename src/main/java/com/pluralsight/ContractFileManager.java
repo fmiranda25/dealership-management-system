@@ -1,51 +1,10 @@
-package com.pluralsight;
-
-import java.io.*;
-import java.util.regex.Pattern;
-
-public class DealershipFileManager {
-
-    public Dealership getDealership(){
-        Dealership dealership = new Dealership();
-
-        try{
-            FileReader fileReader = new FileReader("inventory.csv");
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-
-            bufferedReader.readLine();
-
-
-
-            String input;
-
-            while((input = bufferedReader.readLine()) != null){
-                String[] attributes = input.split("\\|");
-
-                int vin = Integer.parseInt(attributes[0]);
-                int year = Integer.parseInt(attributes[1]);
-                String make = attributes[2];
-                String model = attributes[3];
-                String vehicleType = attributes[4];
-                String color = attributes[5];
-                int odometer = Integer.parseInt(attributes[6]);
-                double price = Double.parseDouble(attributes[7]);
-
-                dealership.getVehicles().add(new Vehicle(vin, year, make, model, vehicleType, color, odometer, price));
-
-
-
-            }
-
-
-        } catch (IOException e){
-            e.printStackTrace();
-        }
-
-        return dealership;
-    }
-
-
-
+//package com.pluralsight;
+//
+//import java.io.BufferedWriter;
+//import java.io.FileWriter;
+//import java.io.IOException;
+//
+//public class ContractFileManager {
 //    public void saveDealership(Dealership dealership) {
 //        System.out.println("Enter vehicle make: ");
 //        String make = scanner.nextLine();
@@ -92,4 +51,4 @@ public class DealershipFileManager {
 //        }
 //
 //    }
-}
+//}
