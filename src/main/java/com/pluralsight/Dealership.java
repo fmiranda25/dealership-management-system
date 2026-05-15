@@ -4,22 +4,27 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class Dealership {
-    private Scanner scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
     private String name;
     private String address;
     private String phone;
-    private ArrayList<Vehicle> vehicles;
+    public ArrayList<Vehicle> vehicles;
 
-    public Dealership(String name, String address, String phone) {
+    public Dealership(){
+        vehicles = new ArrayList<>();
+    }
+
+
+
+    Dealership(String name, String address, String phone){
         this.name = name;
         this.address = address;
         this.phone = phone;
-        this.vehicles = new ArrayList<>();
+        vehicles = new ArrayList<>();
+
     }
 
     public String getAddress() {
@@ -55,23 +60,15 @@ public class Dealership {
     }
 
 
-    public static Dealership parseLine(String line) {
-        Dealership dealership;
-        String[] dealershipFields = line.split(Pattern.quote("|"));
-        dealership = new Dealership(dealershipFields[0], dealershipFields[1], dealershipFields[2]);
-        return dealership;
-    }
-
     @Override
     public String toString() {
         return "Dealership{" +
                 "name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +
-                ", inventory=" + vehicles +
+                ", vehicles=" + vehicles +
                 '}';
     }
-
 
     public ArrayList<Vehicle> getVehiclesByPrice(double min, double max){
         ArrayList<Vehicle> desiredVehiclesList = new ArrayList<>();
