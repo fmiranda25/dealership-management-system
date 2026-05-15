@@ -10,6 +10,7 @@ public class DealershipFileManager {
     public Dealership getDealership() {
         Dealership dealership = null;
 
+
         try {
             FileReader fileReader = new FileReader("inventory.csv");
             BufferedReader bufferedReader = new BufferedReader(fileReader);
