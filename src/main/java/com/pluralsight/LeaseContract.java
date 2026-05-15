@@ -8,7 +8,7 @@ public class LeaseContract extends Contract {
     public LeaseContract ( String contractDate,
                            String customerName,
                            String customerEmail,
-                           String vehicleSold,
+                           Vehicle vehicleSold,
                            double totalPrice,
                            double monthlyPayment) {
 

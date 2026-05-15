@@ -98,11 +98,14 @@ public class UserInterface {
     }
 
     public void processGetByMIleageRequest(){
-        System.out.println("Enter the mileage of the vehicles you want displayed: ");
-        int mileage = scanner.nextInt();
+        System.out.println("Enter Minium Mileage: ");
+        int min = scanner.nextInt();
+
+        System.out.println("Enter Maximum Mileage: ");
+        int max = scanner.nextInt();
         scanner.nextLine();
 
-        print(dealership.getVehiclesByMileage(mileage));
+        print(dealership.getVehiclesByMileage(min, max));
     }
 
     public void processGetByVehicleTypeRequest() {
